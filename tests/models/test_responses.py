@@ -868,6 +868,16 @@ def test_json_with_specified_charset(encoding):
             {"preload": {"rel": "preload", "url": "https://example.com"}},
         ),
         (
+            {"Link": '<https://example.com/page/2>; title="page=2"; rel="next"'},
+            {
+                "next": {
+                    "rel": "next",
+                    "title": "page=2",
+                    "url": "https://example.com/page/2",
+                }
+            },
+        ),
+        (
             {"Link": '</hub>; rel="hub", </resource>; rel="self"'},
             {
                 "hub": {"url": "/hub", "rel": "hub"},
